@@ -1,0 +1,11 @@
+.products-list{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 4%;
+    margin-top: 3rem;
+}
+
+.products-list > div {
+    background-color: rgb(190, 248, 248);
+    border-radius: 5px;
+}
