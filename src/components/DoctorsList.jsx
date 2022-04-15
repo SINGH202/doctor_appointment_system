@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import "./css/doctors.css";
 
 import { useNavigate } from "react-router";
+import { SingleDoc } from "./SingleDoc";
 
 export const DoctorsList = () => {
   const [data, setData] = useState([]);
@@ -23,39 +24,17 @@ export const DoctorsList = () => {
     getData();
   }, []);
 
-  const bookAppointment = (id) => {
-    navigate(`/doc/${id}`);
-  };
-
-  // consnsole.log("slots", id);
-  // };t showSlots = (id) => {
-  //   co
-
   return (
     <div className="products-list">
       {data.map((item) => {
-        return (<SingleProduct id={item._id} 
-          name= {item.name}
-          cost = {item.cost}
-          speciality = {item.speciality}
-          navigate={navigate}/>)
+        return (
+        <div>
+        
+          <SingleDoc name={item.name} id={item._id} speciality={item.speciality} navigate={navigate}/>
+          </div>)
+
       })}
     </div>
   );
 };
-function SingleProduct({ id, name, speciality, cost, navigate }) {
-  const handleNav = () => {
-    navigate(`/docs/${id}`);
-  };
-  return (
-    <div key={id}>
-      <h3>Name: Dr. {name}</h3>
-      <h4>Specialization: {speciality}</h4>
-      <h5>Charges per meet: {cost}</h5>
-      <button onClick={() => handleNav(id)}>
-        Book appointment
-      </button>
-      <button >Check availablity</button>
-    </div>
-  );
-}
+
